@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Google-Maps-Travel-App/static/css/main.073c9b0a.css",
+    "main.js": "/Google-Maps-Travel-App/static/js/main.d4213a81.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Google-Maps-Travel-App/static/js/787.28cb0dcd.chunk.js",
+    "index.html": "/Google-Maps-Travel-App/index.html",
+    "main.073c9b0a.css.map": "/Google-Maps-Travel-App/static/css/main.073c9b0a.css.map",
+    "main.d4213a81.js.map": "/Google-Maps-Travel-App/static/js/main.d4213a81.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Google-Maps-Travel-App/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.d4213a81.js"
+  ]
+}
