@@ -7,6 +7,8 @@ import { Grid, CssBaseline } from "@material-ui/core";
 import { getPlaceData } from "./api";
 function App() {
   let [places, setPlaces] = useState([]);
+  let [isLoading,setIsLoading]=useState(true)
+  let [childClicked,setChildClicked]=useState(null)
   let [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
   let [bounds, setBounds] = useState({
     ne: { lat: 0, lng: 0 },
@@ -14,7 +16,6 @@ function App() {
   });
   let [type, setType] = useState("restaurants");
   let [rating, setRating] = useState(0);
-  let [filteredplaces, setfilteredplaces] = useState([]);
 // to set coordinates of your location after the compoenent is mounted
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -25,23 +26,28 @@ function App() {
   }, []);
   // to filter places when there's a change on rating 
   useEffect(() => {
-    let filtered = places.filter((place) => {
-      return Number(place.rating) > rating;
-    });
-    setfilteredplaces(filtered);
-  }, [rating, places]);
+    setIsLoading(true)
+    getPlaceData(type, bounds.ne, bounds.sw).then((data)=>{
+      setIsLoading(false)
+      setPlaces(data?.filter((item)=>{return item?.name && item?.rating && item?.num_reviews>0})?.filter((place) => {
+        return Number(place.rating) > rating;
+      }));
+    })
+  }, [rating]);
+
   useEffect(() => {
-    console.log(
-      "the coordinates are: ",
-      coordinates,
-      " and bounds are : ",
-      bounds
-    );
+    // console.log(
+    //   "the coordinates are: ",
+    //   coordinates,
+    //   " and bounds are : ",
+    //   bounds
+    // );
+    setIsLoading(true)
     getPlaceData(type, bounds.ne, bounds.sw).then((data) => {
-      console.log(data);
-      setPlaces(data);
+      setIsLoading(false)
+      setPlaces(data?.filter((item)=>{return item?.name && item?.rating && item?.num_reviews>0}));
     });
-  }, [type,coordinates, bounds]);
+  }, [type,bounds,coordinates]);
 
   return (
     <Fragment>
@@ -52,18 +58,22 @@ function App() {
           <List
             setRating={setRating}
             rating={rating}
-            places={filteredplaces.length?filteredplaces:places}
+            places={places}
             type={type}
             setType={setType}
+            setIsLoading={setIsLoading}
+            isLoading={isLoading}
+            childClicked={childClicked}
           />
         </Grid>
         <Grid item xs={12} md={8}>
           <Map
-            places={filteredplaces.length?filteredplaces:places}
+            places={places}
             coordinates={coordinates}
             setBounds={setBounds}
             setCoordinates={setCoordinates}
             setRating={setRating}
+            setChildClicked={setChildClicked}
           />
         </Grid>
       </Grid>
