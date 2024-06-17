@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Google-Maps-Travel-App/static/css/main.073c9b0a.css",
-    "main.js": "/Google-Maps-Travel-App/static/js/main.72f030f8.js",
+    "main.css": "/Google-Maps-Travel-App/static/css/main.f855e6bc.css",
+    "main.js": "/Google-Maps-Travel-App/static/js/main.aebb5590.js",
     "static/js/787.28cb0dcd.chunk.js": "/Google-Maps-Travel-App/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/Google-Maps-Travel-App/index.html",
-    "main.073c9b0a.css.map": "/Google-Maps-Travel-App/static/css/main.073c9b0a.css.map",
-    "main.72f030f8.js.map": "/Google-Maps-Travel-App/static/js/main.72f030f8.js.map",
+    "main.f855e6bc.css.map": "/Google-Maps-Travel-App/static/css/main.f855e6bc.css.map",
+    "main.aebb5590.js.map": "/Google-Maps-Travel-App/static/js/main.aebb5590.js.map",
     "787.28cb0dcd.chunk.js.map": "/Google-Maps-Travel-App/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.72f030f8.js"
+    "static/css/main.f855e6bc.css",
+    "static/js/main.aebb5590.js"
   ]
 }
