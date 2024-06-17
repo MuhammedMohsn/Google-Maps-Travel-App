@@ -48,9 +48,7 @@ function Map({ coordinates, setCoordinates, setBounds, places,setChildClicked}) 
                     />
                     <Rating
                       value={place.rating}
-                      // onChange={() => {
-                      //   setRating(place.rating);
-                      // }}
+                     
                       color="primary"
                       readOnly
                     />
